@@ -220,6 +220,12 @@ Unfortunately you've been scammed and I cannot help you get a refund or anything
 
 ------------
 
+**Q: Can you move the island to...**
+
+**A: NO.**
+
+------------
+
 **Q: Can I DM you / can you help me personally one on one?**
 
 **A:** No. Don't DM me on the FiveM forums and don't try to add me on Discord.
