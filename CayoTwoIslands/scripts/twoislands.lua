@@ -357,7 +357,7 @@ CreateThread(function()
     while true do
         ---We don't need to do something every frame in every cases
         ---@type integer
-        local wait = 500
+        local wait = 185 -- This should be low enough that, when the pause menu is opened, the minimap is toggled to be visible.
 
         if IsPauseMenuActive() and not IsMinimapInInterior() then
             -- If the player is in the pause menu and not looking at an interior minimap
