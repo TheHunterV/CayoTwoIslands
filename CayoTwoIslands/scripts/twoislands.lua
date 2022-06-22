@@ -1,5 +1,6 @@
 local islandCoords = vector3(4840.571, -5174.425, 2.0)
 local nearIsland = false
+local isCayoMinimapLoaded = false
 
 Citizen.CreateThread(function()
 	
@@ -321,18 +322,6 @@ end)
 
 
 CreateThread(function()
-	while true do
-		if nearIsland then
-			SetRadarAsExteriorThisFrame()
-			SetRadarAsInteriorThisFrame(`h4_fake_islandx`, vec(4700.0, -5145.0), 0, 0)
-			Citizen.Wait(0)
-		else
-			Citizen.Wait(1000)
-		end
-	end
-end)
-
-CreateThread(function()
 	SetZoneEnabled(GetZoneFromNameId("PrLog"), false) -- REMOVES SNOW FROM CP
 	SetScenarioGroupEnabled('Heist_Island_Peds', true)
 	SetAmbientZoneListStatePersistent('AZL_DLC_Hei4_Island_Zones', 1, 1) -- Ambient Sounds For Cayo Perico 
@@ -344,19 +333,51 @@ CreateThread(function()
 		if #(coords - islandCoords) < 2000.0 then
 			if not nearIsland then
 				nearIsland = true
+                isCayoMinimapLoaded = true
 				SetAiGlobalPathNodesType(1)
 				LoadGlobalWaterType(1)
 				SetDeepOceanScaler(0.0)
+                SetToggleMinimapHeistIsland(true)
 			end
 		else
 			if nearIsland then
 				nearIsland = false
+                isCayoMinimapLoaded = false
 				SetAiGlobalPathNodesType(0)
 				LoadGlobalWaterType(0)
 				SetDeepOceanScaler(1.0)
+                SetToggleMinimapHeistIsland(false)
 			end
 		end
 
-		Citizen.Wait(1000)
+		Wait(1000)
 	end
+end)
+
+---Handle the minimap loading and unloading
+CreateThread(function()
+    while true do
+        ---We don't need to do something every frame in every cases
+        ---@type integer
+        local wait = 500
+
+        if IsPauseMenuActive() and not IsMinimapInInterior() then
+            -- If the player is in the pause menu and not looking at an interior minimap
+            if isCayoMinimapLoaded then
+                -- If the minimap was loaded with SetToggleMinimapHeistIsland, then we disable it
+                isCayoMinimapLoaded = false
+                SetToggleMinimapHeistIsland(false)
+            end
+            -- We force load the cayo perico minimap
+            SetRadarAsExteriorThisFrame()
+            SetRadarAsInteriorThisFrame(GetHashKey("h4_fake_islandx"), 4700.0, -5145.0, 0, 0)
+            wait = 0
+
+        elseif not isCayoMinimapLoaded and nearIsland then
+            -- If the minimap is not loaded with SetToggleMinimapHeistIsland and the player is close to cayo perico, then we load it
+            isCayoMinimapLoaded = true
+            SetToggleMinimapHeistIsland(true)
+        end
+        Wait(wait)
+    end
 end)
