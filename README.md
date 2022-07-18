@@ -41,23 +41,12 @@ I hope you enjoy 😊
 
 ---------------------------------------
 
-# Configuring PMMS
+# Configuring PMMS 
 
 **Please see [Kibook's PMMS](https://github.com/kibook/pmms) for installation instructions and troubleshooting**
 
+------------------
 
-
-**If you want the TV at the beach party to fade out nicely at a certain point, try these settings, then go to advanced settings and save it as an entity, call it Cayo Perico Beach TV:**
-
-> Volume: 100
-> 
-> sameRoom: 2.4
-> 
-> diffRoom: 6.0
-> 
-> Range: 40
-
-**In the future, any TV settings you want, save it as an entity. Saving it as model will save those settings for that TV, everywhere around the map.**
 
 # Static Emitters 🎶
 
@@ -129,18 +118,23 @@ To 'fix' this, open the `staticEmitters.lua` file inside the PMMS resource, and 
 
 # BUGS 🐛
 
-Los Santos and Cayo Perico will only both show up on the minimap / pause map, if the player is on or near Cayo Perico. This is due to how GTA 5 handles it. I am yet to find a way to have them both appear, however have added map blips if you wish to fly or drive a boat there. If you know of a way to fix this, I am all ears, otherwise, stop spamming about it as I have already made this apparent.
+- some IPL Loader scripts have the following code:
+
+```lua
+LoadMpDlcMaps()
+EnableMpDlcMaps(true)
+```
+
+This conflicts with Cayo Perico and the hangar, as my resources are already requesting the required IPLs, maps, and entitysets. 
+
+Set it to false and request your IPLs the correct way.
+
+- Player may not be able to move their cursor any further than Cayo Perico, if they are inside any of the interiors on the island, however it seems to fix itself once the player leaves the interior
 
 
 ---------------------------------------
 
-# **VEHICLES & GATES** 🚘
-
- `Vehicles - Removed`, and `Vehicles - No Flight Or Water` provided. If you ever want the vehicles back, copy the backup files from `Vehicles Backup`.
-
-If for whatever reason you would like to add the original gates back, but have them be accessible and not solid shut, *as well as the little button seen in the Cayo Perico Heist in Grand Theft Auto: Online,* I have provided the folder `Gates`. Place `tays_mansiongates` inside the `ymaps` folder of `CayoTwoIslands`
-
-# **HANGAR COLLISIONS:**
+# **HANGAR COLLISIONS: 🛩️**
 
 `Original Hangar Collision` folder provided. If you happen to have the '"[Cayo Perico Shops MLO](https://forum.cfx.re/t/mlo-cayo-perico-shops/1994908)' resource, as well as mine, the server refuses to read the collision file for shops, but instead, read mine, making the shop collisions not work. 
 
@@ -150,26 +144,16 @@ Just copy and paste mine, or the Cayo Perico Shops collision file **(h4_islandai
 
 # Frameworks & Other Cayo Perico Resources / Scripts Support:
 
-I don't use any fancy frameworks or any other Cayo Perico related resources, so you'll have to troubleshoot it on your **own.** These are simply ymaps, therefore you may need to update the fxmanifest version to something newer, and then it should be good to go.
-
-Check any collision (ybn) files of your maps if you face any conflictions.
+I don't use any fancy frameworks or any other Cayo Perico related resources, so you'll have to troubleshoot it on your **own.** These are simply ymap, ytyp and ybn files.
 
 ---------------------------------------
 
 
-# Installation: 
+# Installation ⚙️: 
 
 * Download repository and put the `CayoTwoIslands` folder in your server files
 
 * Add `h4_islandairstrip_12` from the `Original Hangar Collison` folder, and insert it into `CayoTwoIslands` > `stream` > `ybn` folder. If you are using the Cayo Perico Shops resource, ignore this step
-
-
-* Choose between `No Flight Or Water Vehicles` or `No Vehicles`, and insert the files into the `CayoImprovements` > `stream` > `ymap` folder, replacing the existing files. 
- 
-If you enjoy the vehicles spawning on the island, ignore this step. 
-
-
-If at any time you need the vehicles back, grab the files from `Vehicles BACKUP` and place them into the `CayoImprovements` > `stream` > `ymap` folder.
 
 * add `start CayoTwoIslands` to your server.cfg
 
@@ -178,7 +162,7 @@ If at any time you need the vehicles back, grab the files from `Vehicles BACKUP`
 
 --------------------
 
-# FAQ
+# FAQ 💬
 
 **Q: How can I change what's inside the cabinet in the basement?**
 
@@ -191,16 +175,6 @@ If at any time you need the vehicles back, grab the files from `Vehicles BACKUP`
 **A:** Yes, open peds_config.lua and everything has been configured there. You can add / remove entries, or comment it out from the fxmanifest to completely disable them.
 
 You will also need to comment out main_peds.lua if you want to disable them completely.
-
-------------
-
-**Q: How come I can't see Cayo Perico unless I get close to the Aircraft Carrier or near where the island is, and the minimap doesn't appear??**
-
-**A:** It's concealed the way Rockstar Games created it, and it had to be done this way to make the modified hangar work.
-
-**Maybe this can help?:**
-
-[How To Load Cayo Perico Minimap](https://forum.cfx.re/t/how-to-load-cayoperico-minimap-all-of-the-time/4808760)
 
 ------------
 
@@ -224,7 +198,13 @@ Unfortunately you've been scammed and I cannot help you get a refund or anything
 
 **A: NO.**
 
-------------
+------------------
+
+**Q: My server has a bridge going to Cayo Perico but there's trees in the way, can you remove them?**
+
+**A: NO. It's an island. Fly a plane or drive a boat.**
+
+------------------
 
 **Q: Can I DM you / can you help me personally one on one?**
 
@@ -234,7 +214,7 @@ Unfortunately you've been scammed and I cannot help you get a refund or anything
 
 
 
-# License 
+# License 📝
 
 This project does not contain a license, therefore you are not allowed to add one and claim it as yours.
 
@@ -249,7 +229,7 @@ You can read more here [HERE](https://opensource.stackexchange.com/questions/172
 
 ---------------------------------------
 
-# Screenshots
+# Screenshots 📸
 
 
 
