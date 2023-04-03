@@ -2,6 +2,12 @@
 
 Designed for RP and exploration in mind, CayoTwoIslands does everything [Cayo Improvements](https://github.com/TayMcKenzieNZ/CayoImprovements) does, except one important and highly requested feature; no more concealment.
 
+<p align="center">
+    <a href="https://github.com/TayMcKenzieNZ/CayoTwoIslands/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-GPL--3.0-blue.svg" alt="License"></a>
+    <a href="https://github.com/TayMcKenzieNZ/CayoTwoIslands/stargazers"><img src="https://img.shields.io/github/stars/TayMcKenzieNZ/CayoTwoIslands.svg?style=social&label=Stars"></a>
+    <a href="https://github.com/TayMcKenzieNZ/CayoTwoIslands/network/members"><img src="https://img.shields.io/github/forks/TayMcKenzieNZ/CayoTwoIslands.svg?style=social&label=Forks"></a>
+</p>
+
 ---------------------------------------
 
 
