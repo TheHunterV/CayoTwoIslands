@@ -14,7 +14,7 @@ Citizen.CreateThread(function()
                 local spawned = location.handle and DoesEntityExist(location.handle)
 
                 if nearby and not spawned then
-                    local model = GetHashKey(pedGroup.model)
+                    local model = joaat(pedGroup.model)
                     local pedType = pedGroup.pedType or 4
 
                     if IsModelInCdimage(model) then
@@ -70,12 +70,12 @@ Citizen.CreateThread(function()
                                     ammo = weapon.ammo
                                 end
 
-                                GiveWeaponToPed(npc, GetHashKey(weapon.name), ammo, true, false)
+                                GiveWeaponToPed(npc, joaat(weapon.name), ammo, true, false)
                             end
                         end
 
                         if pedGroup.defaultWeapon then
-                            SetCurrentPedWeapon(npc, GetHashKey(pedGroup.defaultWeapon), true)
+                            SetCurrentPedWeapon(npc, joaat(pedGroup.defaultWeapon), true)
                         end
 
                         location.handle = npc
