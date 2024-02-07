@@ -1,5 +1,8 @@
 # CayoTwoIslands 🏝️
 
+## This is the OFFICIAL repository of CayoTwoIslands. I am not associated with Popcorn RP and do not appreciate them taking my work and claiming it as their own.
+
+
 Designed for RP and exploration in mind, CayoTwoIslands does everything [Cayo Improvements](https://github.com/TayMcKenzieNZ/CayoImprovements) does, except one important and highly requested feature; no more concealment.
 
 <p align="center">
